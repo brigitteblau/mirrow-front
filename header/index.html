@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <!-- Logo -->
+        <img src="Logo.png" alt="Logo" class="logo" />
+      
+        <!-- Navigation Links -->
+        <nav class="nav-links">
+          <a href="#">Home</a>
+          <a href="#">Productos</a>
+          <a href="#">Tiendas</a>
+          <a href="#">Promociones</a>
+          <a href="#">Guía de tallas</a>
+        </nav>
+      
+        <!-- Icons -->
+        <div class="icons">
+          <img src="Masc icon.svg" alt="User Icon" class="icon" />
+          <img src="Group.svg" alt="Cart Icon" class="icon" />
+          <!-- Menu Hamburguesa -->
+          <div class="hamburger-menu">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+        </div>
+      </div>
+      
+      
+
+<script>
+
+  const hamburgerMenu = document.querySelector('.hamburger-menu');
+  const navLinks = document.querySelector('.nav-links');
+
+  hamburgerMenu.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
+
+</script>
+</body>
+</html>
