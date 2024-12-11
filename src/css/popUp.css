@@ -1,0 +1,56 @@
+/* Estilos para el pop-up */
+.pop-up {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    color: white;
+    border-radius: 8px;
+    z-index: 1000;
+  }
+  
+  .pop-up button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .pop-up button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Estilo para el mensaje de éxito */
+  .success-message {
+    margin-top: 20px;
+    color: #4CAF50;
+  }
+  
+  /* Estilo para el formulario */
+  .sign-up form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sign-up form input {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .sign-up form button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    border: none;
+  }
+  
+  .sign-up form button:disabled {
+    background-color: #a9a9a9;
+  }
+  
