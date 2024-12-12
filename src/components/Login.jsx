@@ -45,7 +45,7 @@ const LoginForm = () => {
     <div className="outer-border">
       <div className="inner-border">
         <div className="login-box">
-          <h1 className="login-tittle">LOG IN</h1>
+          <h1 className="login-tittle">INICIAR SESION</h1>
           <form onSubmit={handleSubmit}>
             <label htmlFor="email">Mail/Teléfono</label>
             <input
