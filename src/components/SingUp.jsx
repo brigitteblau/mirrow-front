@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 import PopUp from "./PopUp"; 
+import "../css/signUp.css";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");

@@ -1,11 +1,12 @@
-import React from 'react';
+import React from "react";
+import "../css/popUp.css";
 
 const PopUp = ({ message, onClose }) => {
   return (
-    <div className="pop-up">
-      <div className="pop-up-content">
+    <div className="popup-overlay">
+      <div className="popup-content">
         <p>{message}</p>
-        <button onClick={onClose} className="pop-up-btn">Cerrar</button>
+        <button onClick={onClose} className="close-btn">Cerrar</button>
       </div>
     </div>
   );

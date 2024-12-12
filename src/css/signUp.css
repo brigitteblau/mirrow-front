@@ -1,0 +1,68 @@
+/* General Reset */
+  
+
+  
+  /* SignUp Container */
+  .sign-up {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #fff;
+    padding: 30px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  h2 {
+    font-style: italic;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .input-container {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .input-label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: #ddd;
+    font-size: 1rem;
+  }
+  
+  .submit-btn {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .submit-btn:hover {
+    background-color: #f2f2f2;
+    scale: 1.05;
+  }
+  
+  .error {
+    color: #ff0000;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+  
+  .success-message {
+    margin-top: 15px;
+    color: #0f0;
+    font-size: 1rem;
+  }
+  
