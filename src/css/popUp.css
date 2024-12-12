@@ -14,43 +14,14 @@
   .pop-up button {
     margin-top: 10px;
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #af614c;
     border: none;
     color: white;
     cursor: pointer;
   }
   
   .pop-up button:hover {
-    background-color: #45a049;
+    background-color: #f60000;
   }
   
-  /* Estilo para el mensaje de éxito */
-  .success-message {
-    margin-top: 20px;
-    color: #4CAF50;
-  }
-  
-  /* Estilo para el formulario */
-  .sign-up form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .sign-up form input {
-    margin-bottom: 10px;
-    padding: 10px;
-    font-size: 16px;
-  }
-  
-  .sign-up form button {
-    padding: 10px;
-    background-color: #007BFF;
-    color: white;
-    font-size: 16px;
-    border: none;
-  }
-  
-  .sign-up form button:disabled {
-    background-color: #a9a9a9;
-  }
   

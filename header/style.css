@@ -97,3 +97,20 @@ body {
     }
   }
   
+
+  main{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #444343;
+    padding: 55px 65px;
+    border: 1px whitesmoke solid; 
+  }
+  .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #444343;
+    padding: 50px 70px;
+    border: 1px whitesmoke solid;
+  }

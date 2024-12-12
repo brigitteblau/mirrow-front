@@ -23,12 +23,12 @@ const Header = () => {
         <Link to="/guia-de-tallas">Guía de tallas</Link>
       </nav>
 
-      {/* Iconos */}
+    
       <div className="icons">
-        <Link to="/SingUp">
-          <img src="public/img/user.svg" alt="User Icon" className="icon" />
+        <Link to="/log-in">
+          <img src="/img/user.svg" alt="User Icon" className="icon" />
         </Link>
-        <img src="public/img/car.svg" alt="Cart Icon" className="icon" />
+        <img src="/img/car.svg" alt="Cart Icon" className="icon" />
 
         {/* Menu Hamburguesa */}
         <div className="hamburger-menu" onClick={toggleMenu}>
