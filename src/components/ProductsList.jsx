@@ -6,10 +6,10 @@ import "../css/productosList.css";
 const ProductList = () => {
   const allProducts = [
     ...products.remeras,
-    ...products.chombas,
-    ...products.camisas,
-    ...products.pantalones,
-    ...products.bermudas,
+    // ...products.chombas,
+    // ...products.camisas,
+    // ...products.pantalones,
+    // ...products.bermudas,
   ];
 
   return (

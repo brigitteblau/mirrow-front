@@ -8,11 +8,12 @@ export const products = {
       description: "Remera de algodón koala",
       price: 500,
       images: ["https://via.placeholder.com/150", "https://via.placeholder.com/150/0000FF"],
-      stock: 10,
+      stock: 1000,
       size: ["S", "M", "L", "XL"],
       typeId: 1,
       subTypeId: 101,
       fabric: "100% algodón",
+      colors: ["#FC7D62", "#90FC62"]
     },
     {
       id: 2,
@@ -25,6 +26,7 @@ export const products = {
       typeId: 1,
       subTypeId: 102,
       fabric: "Algodón y poliéster",
+      colors: ["red", "darkgreen"]
     },
   ],
 };

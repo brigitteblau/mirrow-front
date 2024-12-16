@@ -9,19 +9,28 @@ const ProductDetail = () => {
   const [selectedSize, setSelectedSize] = useState(product.size[0]);
   const [quantity, setQuantity] = useState(1);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [selectedColor, setSelectedColor] = useState(product.colors[0]);
+  const [stockError, setStockError] = useState("");
 
   if (!product) {
     return <h2>Producto no encontrado</h2>;
   }
 
-  const handleNextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % product.images.length);
+  // Cambiar imágenes con los indicadores
+  const handleImageChange = (index) => {
+    setCurrentImageIndex(index);
   };
 
-  const handlePrevImage = () => {
-    setCurrentImageIndex(
-      (prev) => (prev - 1 + product.images.length) % product.images.length
-    );
+  // Control de cantidad y stock
+  const handleQuantityChange = (e) => {
+    const value = parseInt(e.target.value);
+    if (value > product.stock) {
+      setQuantity(product.stock);
+      setStockError("No hay suficiente stock disponible.");
+    } else if (value >= 1) {
+      setQuantity(value);
+      setStockError("");
+    }
   };
 
   return (
@@ -31,17 +40,40 @@ const ProductDetail = () => {
 
       {/* Carrusel de imágenes */}
       <div className="carousel">
-        <button onClick={handlePrevImage}>{"<"}</button>
         <img src={product.images[currentImageIndex]} alt={product.name} />
-        <button onClick={handleNextImage}>{">"}</button>
+      </div>
+      <div className="carousel-indicators">
+        {product.images.map((_, index) => (
+          <span
+            key={index}
+            className={`dot ${index === currentImageIndex ? "active" : ""}`}
+            onClick={() => handleImageChange(index)}
+          ></span>
+        ))}
       </div>
 
       {/* Detalles del producto */}
       <p>{product.description}</p>
       <p><strong>Precio:</strong> ${product.price}</p>
-      <p><strong>Stock disponible:</strong> {product.stock}</p>
-      <p><strong>Tela:</strong> {product.fabric}</p>
-      <p><strong>Type ID:</strong> {product.typeId} | <strong>SubType ID:</strong> {product.subTypeId}</p>
+      <p><strong>Stock disponible:</strong> {product.stock > 0 ? product.stock : "Sin stock"}</p>
+
+      {/* Selección de color */}
+      <div>
+        <label><strong>Color:</strong></label>
+        <div className="color-buttons">
+          {product.colors.map((color) => (
+            <button
+              key={color}
+              style={{
+                backgroundColor: color,
+                border: selectedColor === color ? "2px solid black" : "1px solid #ddd",
+              }}
+              className="color-button"
+              onClick={() => setSelectedColor(color)}
+            ></button>
+          ))}
+        </div>
+      </div>
 
       {/* Selección de talle */}
       <div>
@@ -58,27 +90,24 @@ const ProductDetail = () => {
         </select>
       </div>
 
-
+      {/* Input de cantidad */}
       <div>
         <label><strong>Cantidad:</strong></label>
         <input
           type="number"
           min="1"
-          max={product.stock}
           value={quantity}
-          onChange={(e) => setQuantity(e.target.value)}
+          onChange={handleQuantityChange}
         />
+        {stockError && <p className="stock-error">{stockError}</p>}
       </div>
 
-
+      {/* Botón Añadir */}
       <button
-        onClick={() =>
-          alert(
-            `Producto añadido: ${product.name}\nTalle: ${selectedSize}\nCantidad: ${quantity}`
-          )
-        }
+        onClick={() => alert("Producto añadido al carrito")}
+        disabled={product.stock === 0}
       >
-        Añadir al carrito
+        {product.stock === 0 ? "Sin stock" : "Añadir al carrito"}
       </button>
     </div>
   );

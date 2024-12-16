@@ -2,28 +2,51 @@
   text-align: center;
   margin: 20px auto;
   max-width: 600px;
-}
-
-.carousel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .carousel img {
-  width: 300px;
+  width: 100%;
+  max-width: 400px;
   border-radius: 8px;
 }
 
-.carousel button {
-  background-color: #555;
-  color: #fff;
-  border: none;
-  padding: 10px;
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
   margin: 0 5px;
-  font-size: 1.2rem;
-  cursor: pointer;
+  background-color: #ccc;
   border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #555;
+}
+
+.color-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.color-button {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 select,
@@ -31,6 +54,10 @@ input {
   margin: 10px 0;
   padding: 8px;
   font-size: 1rem;
+  width: 60px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
 button {
@@ -42,8 +69,20 @@ button {
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
   background-color: #218838;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.stock-error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 5px;
 }
