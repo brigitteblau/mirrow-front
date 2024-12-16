@@ -1,0 +1,49 @@
+.product-detail {
+  text-align: center;
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel img {
+  width: 300px;
+  border-radius: 8px;
+}
+
+.carousel button {
+  background-color: #555;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  margin: 0 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+select,
+input {
+  margin: 10px 0;
+  padding: 8px;
+  font-size: 1rem;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #218838;
+}

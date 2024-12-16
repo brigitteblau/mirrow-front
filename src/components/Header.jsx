@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <div className="header">
       {/* Logo */}
-      <img src="public/img/Logo.png" alt="Logo" className="logo" />
+      <img src="public/img/Logo-2.png" alt="Logo" className="logo" />
 
       {/* Links de navegación */}
       <nav className={`nav-links ${isMenuActive ? "active" : ""}`}>

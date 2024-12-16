@@ -1,10 +1,9 @@
 // src/components/ProductList.js
 import React from "react";
-import { products } from "../data/productos"; // Importa la data
-import ProductCard from "./Products"; // Importa el componente de tarjeta
-
+import { products } from "../data/productos"; 
+import ProductCard from "./Products"; 
+import "../css/productosList.css";
 const ProductList = () => {
-  // Combinamos todos los productos en un solo array
   const allProducts = [
     ...products.remeras,
     ...products.chombas,
@@ -15,7 +14,9 @@ const ProductList = () => {
 
   return (
     <div className="product-list">
-      <h1>Productos</h1>
+      <div className="div-titulo">
+      <h1 >Productos</h1>
+      </div>
       <div className="product-items">
         {allProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
