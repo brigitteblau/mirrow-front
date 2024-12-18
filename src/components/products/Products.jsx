@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useNavigate } from "react-router-dom"; 
-import "../css/productos.css";
+import "../../css/products/productos.css";
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate(); 

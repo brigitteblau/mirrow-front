@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Header from "./components/Header";
-import Login from "./components/Login";
-import SingUp from "./components/SingUp";
-import ProductList from "./components/ProductsList";
-import ProductDetail from "./components/ProductDetail"; // Nuevo componente
-import ResetPassword from "./components/ResetPassword";
+import Header from "./components/layout/Header";
+import Login from "./components/user/Login";
+import SingUp from "./components/user/SingUp";
+import ProductList from "./components/products/ProductsList";
+import ProductDetail from "./components/products/ProductDetail"; 
+import ResetPassword from "./components/user/ResetPassword";
 
 const App = () => {
   return (

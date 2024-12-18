@@ -1,0 +1,15 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+    height: 1000vh;
+}
+
+.div-titulo{
+    color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    font-size: 60px;
+}

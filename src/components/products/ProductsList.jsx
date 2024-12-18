@@ -2,7 +2,8 @@
 import React from "react";
 import { products } from "../../data/productos"; 
 import ProductCard from "./Products"; 
-import "../css/productosList.css";
+import "../../css/products/productosList.css";
+
 const ProductList = () => {
   const allProducts = [
     ...products.remeras,
@@ -15,7 +16,7 @@ const ProductList = () => {
   return (
     <div className="product-list">
       <div className="div-titulo">
-      <h1 >Productos</h1>
+      <h1 className="titulo">Productos</h1>
       </div>
       <div className="product-items">
         {allProducts.map((product) => (

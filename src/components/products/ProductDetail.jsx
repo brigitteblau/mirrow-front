@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
+import "../../css/products/productosDetail.css";
 
 const ProductDetail = () => {
   const { id } = useParams();

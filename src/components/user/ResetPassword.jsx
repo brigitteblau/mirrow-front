@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "../css/popUp.css";
-import "../css/reset.css";
-import Popup from "../shared/PopUp";
+import "../../css/shared/popUp.css";
+import "../../css/user/reset.css";
 
 const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState("");
