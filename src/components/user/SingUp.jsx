@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Popup from "./PopUp";
+import Popup from "../shared/PopUp";
 import "../css/popUp.css";
 
 const SingUp = () => {
