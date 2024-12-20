@@ -1,6 +1,8 @@
+// src/components/products/ProductDetail.js
 import React, { useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import "../../css/products/productosDetail.css";
+import Popup from "../shared/PopUp";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -12,6 +14,8 @@ const ProductDetail = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   const [stockError, setStockError] = useState("");
+
+  const [showPopup, setShowPopup] = useState(false); // Estado para mostrar el popup
 
   if (!product) {
     return <h2>Producto no encontrado</h2>;
@@ -32,6 +36,11 @@ const ProductDetail = () => {
       setQuantity(value);
       setStockError("");
     }
+  };
+
+  // Mostrar el popup cuando se añade al carrito
+  const handleAddToCart = () => {
+    setShowPopup(true);
   };
 
   return (
@@ -79,7 +88,7 @@ const ProductDetail = () => {
       {/* Selección de talle */}
       <div>
         <label><strong>Talle:</strong></label>
-        <select
+        <select className="select"
           value={selectedSize}
           onChange={(e) => setSelectedSize(e.target.value)}
         >
@@ -94,7 +103,7 @@ const ProductDetail = () => {
       {/* Input de cantidad */}
       <div>
         <label><strong>Cantidad:</strong></label>
-        <input
+        <input className="select"
           type="number"
           min="1"
           value={quantity}
@@ -104,12 +113,20 @@ const ProductDetail = () => {
       </div>
 
       {/* Botón Añadir */}
-      <button
-        onClick={() => alert("Producto añadido al carrito")}
+      <button className="button"
+        onClick={handleAddToCart} // Muestra el popup
         disabled={product.stock === 0}
       >
         {product.stock === 0 ? "Sin stock" : "Añadir al carrito"}
       </button>
+
+      {/* Popup */}
+      {showPopup && (
+        <Popup
+          message="Producto añadido al carrito"
+          onClose={() => setShowPopup(false)} // Cierra el popup
+        />
+      )}
     </div>
   );
 };

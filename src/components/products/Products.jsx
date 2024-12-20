@@ -1,4 +1,4 @@
-//src/components/Products.jsx
+//src/components/products/Products.jsx
 
 import React from "react";
 import { useNavigate } from "react-router-dom"; 

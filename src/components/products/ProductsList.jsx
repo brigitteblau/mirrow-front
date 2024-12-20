@@ -1,4 +1,4 @@
-// src/components/ProductList.js
+// src/components/products/ProductList.js
 import React from "react";
 import { products } from "../../data/productos"; 
 import ProductCard from "./Products"; 

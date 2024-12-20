@@ -49,8 +49,7 @@
   cursor: pointer;
 }
 
-select,
-input {
+.select {
   margin: 10px 0;
   padding: 8px;
   font-size: 1rem;
@@ -60,7 +59,7 @@ input {
   border-radius: 5px;
 }
 
-button {
+.button {
   margin-top: 20px;
   padding: 10px 20px;
   background-color: #28a745;
@@ -72,11 +71,11 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+.button:hover {
   background-color: #218838;
 }
 
-button:disabled {
+.button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
