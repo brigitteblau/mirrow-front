@@ -48,7 +48,7 @@
 }
 
 /* Label styling */
-label {
+.login-box label {
   display: block;
   margin: 15px 0 5px;
   text-align: left;
@@ -56,7 +56,7 @@ label {
 }
 
 /* Input styling */
-input {
+.login-box input {
   width: 100%;
   padding: 12px;
   margin-bottom: 15px;
@@ -68,7 +68,7 @@ input {
 }
 
 /* Button styling */
-button {
+.login-box button {
   background-color: #fff;
   color: #000;
   border: none;
@@ -79,13 +79,13 @@ button {
   transition: transform 0.2s ease;
 }
 
-button:hover {
+.login-box button:hover {
   background-color: #f2f2f2;
   transform: scale(1.05);
 }
 
 /* Paragraph styling */
-p {
+.login-box p {
   margin-top: 10px;
   font-size: 0.9rem;
 }
@@ -114,17 +114,17 @@ p {
     font-size: 1.5rem;
   }
 
-  input {
+  .login-box input {
     padding: 10px;
     font-size: 0.9rem;
   }
 
-  button {
+  .login-box button {
     padding: 12px 25px;
     font-size: 0.9rem;
   }
 
-  .register-link {
+  .login-box .register-link {
     font-size: 0.8rem;
   }
 }
@@ -140,17 +140,17 @@ p {
     font-size: 1.2rem;
   }
 
-  input {
+  .login-box  input {
     padding: 8px;
     font-size: 0.9rem;
   }
 
-  button {
+  .login-box button {
     padding: 10px 20px;
     font-size: 0.9rem;
   }
 
-  p {
+  .login-box p {
     font-size: 0.8rem;
   }
 

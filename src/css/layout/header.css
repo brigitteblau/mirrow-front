@@ -66,7 +66,36 @@
     background-color: white;
     border-radius: 3px;
   }
+  .cart-container {
+    position: relative;
+    display: inline-block;
+  }
   
+  .icon {
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .icon:hover {
+    transform: scale(1.1);
+  }
+  
+  .cart-notification {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+  }
   /* Responsive */
   @media (max-width: 768px) {
     .nav-links {

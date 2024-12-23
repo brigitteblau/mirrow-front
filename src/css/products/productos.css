@@ -1,4 +1,4 @@
-/* src/css/productos.css */
+/* src/css/productos/productos.css */
 .product-items {
   display: flex;
   flex-wrap: wrap;
@@ -94,4 +94,4 @@
   .product-card {
     width: 100%;
   }
-}
+} 

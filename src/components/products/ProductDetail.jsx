@@ -1,130 +1,163 @@
 // src/components/products/ProductDetail.js
 import React, { useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
 import "../../css/products/productosDetail.css";
 import Popup from "../shared/PopUp";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const location = useLocation();
+  const { addToCart } = useCart();
   const product = location.state?.product;
 
   const [selectedSize, setSelectedSize] = useState(product.size[0]);
   const [quantity, setQuantity] = useState(1);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
-  const [stockError, setStockError] = useState("");
-
-  const [showPopup, setShowPopup] = useState(false); // Estado para mostrar el popup
+  const [showPopup, setShowPopup] = useState(false);
 
   if (!product) {
     return <h2>Producto no encontrado</h2>;
   }
 
-  // Cambiar imágenes con los indicadores
+  // Agregar producto al carrito
+  const handleAddToCart = () => {
+    const productToAdd = {
+      ...product,
+      selectedSize,
+      selectedColor,
+      quantity,
+    };
+    addToCart(productToAdd, quantity);
+    setShowPopup(true);
+  };
+
+  // Cambiar imágenes
   const handleImageChange = (index) => {
     setCurrentImageIndex(index);
   };
 
-  // Control de cantidad y stock
-  const handleQuantityChange = (e) => {
-    const value = parseInt(e.target.value);
-    if (value > product.stock) {
-      setQuantity(product.stock);
-      setStockError("No hay suficiente stock disponible.");
-    } else if (value >= 1) {
-      setQuantity(value);
-      setStockError("");
-    }
+  // Ajustar cantidad
+  const increaseQuantity = () => {
+    if (quantity < product.stock) setQuantity(quantity + 1);
   };
 
-  // Mostrar el popup cuando se añade al carrito
-  const handleAddToCart = () => {
-    setShowPopup(true);
+  const decreaseQuantity = () => {
+    if (quantity > 1) setQuantity(quantity - 1);
   };
 
   return (
     <div className="product-detail">
-      {/* Título */}
-      <h1>{product.name}</h1>
-
-      {/* Carrusel de imágenes */}
-      <div className="carousel">
-        <img src={product.images[currentImageIndex]} alt={product.name} />
-      </div>
-      <div className="carousel-indicators">
-        {product.images.map((_, index) => (
-          <span
-            key={index}
-            className={`dot ${index === currentImageIndex ? "active" : ""}`}
-            onClick={() => handleImageChange(index)}
-          ></span>
-        ))}
-      </div>
-
-      {/* Detalles del producto */}
-      <p>{product.description}</p>
-      <p><strong>Precio:</strong> ${product.price}</p>
-      <p><strong>Stock disponible:</strong> {product.stock > 0 ? product.stock : "Sin stock"}</p>
-
-      {/* Selección de color */}
-      <div>
-        <label><strong>Color:</strong></label>
-        <div className="color-buttons">
-          {product.colors.map((color) => (
-            <button
-              key={color}
-              style={{
-                backgroundColor: color,
-                border: selectedColor === color ? "2px solid black" : "1px solid #ddd",
-              }}
-              className="color-button"
-              onClick={() => setSelectedColor(color)}
-            ></button>
+      {/* Columna izquierda: Thumbnails */}
+      <div className="images-section">
+        <div className="thumbnails">
+          {product.images.map((image, index) => (
+            <img
+              key={index}
+              src={image}
+              alt={`${product.name} thumbnail ${index + 1}`}
+              className={index === currentImageIndex ? "active-thumbnail" : ""}
+              onClick={() => handleImageChange(index)}
+            />
           ))}
         </div>
       </div>
 
-      {/* Selección de talle */}
-      <div>
-        <label><strong>Talle:</strong></label>
-        <select className="select"
-          value={selectedSize}
-          onChange={(e) => setSelectedSize(e.target.value)}
-        >
-          {product.size.map((size) => (
-            <option key={size} value={size}>
-              {size}
-            </option>
+      {/* Columna central: Imagen principal */}
+      <div className="main">
+      <div className="main-image">
+        <img src={product.images[currentImageIndex]} alt={product.name} />
+      </div>
+      </div>
+
+      {/* Columna derecha: Información del producto */}
+      <div className="details-section">
+        <h1>{product.name}</h1>
+        <p className="price">${product.price}</p>
+
+        <div className="colors">
+          <p>Colores:</p>
+          {product.colors.map((color, index) => (
+            <button
+              key={index}
+              style={{
+                backgroundColor: color,
+                border: selectedColor === color ? "2px solid black" : "1px solid #ddd",
+              }}
+              className={`color-button ${selectedColor === color ? "active" : ""}`}
+              onClick={() => setSelectedColor(color)}
+            ></button>
           ))}
-        </select>
-      </div>
+        </div>
 
-      {/* Input de cantidad */}
-      <div>
-        <label><strong>Cantidad:</strong></label>
-        <input className="select"
-          type="number"
-          min="1"
-          value={quantity}
-          onChange={handleQuantityChange}
-        />
-        {stockError && <p className="stock-error">{stockError}</p>}
-      </div>
+        <div className="sizes">
+          <p>Talle:</p>
+          <div className="size-buttons">
+            {product.size.map((size, index) => (
+              <button
+                key={index}
+                className={`size-button ${selectedSize === size ? "active-size" : ""}`}
+                onClick={() => setSelectedSize(size)}
+              >
+                {size}
+              </button>
+            ))}
+          </div>
+          <p>
+            ¿No sabes tu talle? Consulta nuestra <Link to="/guia-de-talles">guía de talles</Link>
+          </p>
+        </div>
 
-      {/* Botón Añadir */}
-      <button className="button"
-        onClick={handleAddToCart} // Muestra el popup
-        disabled={product.stock === 0}
-      >
-        {product.stock === 0 ? "Sin stock" : "Añadir al carrito"}
-      </button>
+        <div className="quantity">
+          <p>Cantidad:</p>
+         
+          <button 
+            onClick={decreaseQuantity}
+            disabled={quantity === 1} >
+                  -
+                  </button>
+       
+         
+        <div className="span-div">
+        <span className="span">{quantity}</span>
+        </div>
+        
+          <button
+            onClick={increaseQuantity}
+            disabled={quantity === product.stock}
+          >
+            +
+          </button>
+        </div>
+
+        <p className="stock-info">
+          {product.stock > 0 ? `Stock disponible: ${product.stock}` : "No hay stock disponible"}
+        </p>
+
+        <div className="buttons">
+          <button
+            className="buy-now"
+            onClick={handleAddToCart}
+            disabled={product.stock === 0}
+          >
+            Comprar
+          </button>
+          <button
+            className="add-to-cart"
+            onClick={handleAddToCart}
+            disabled={product.stock === 0}
+          >
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
 
       {/* Popup */}
       {showPopup && (
         <Popup
           message="Producto añadido al carrito"
-          onClose={() => setShowPopup(false)} // Cierra el popup
+          onClose={() => setShowPopup(false)}
         />
       )}
     </div>

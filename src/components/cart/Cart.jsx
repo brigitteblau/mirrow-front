@@ -1,33 +1,32 @@
+//src/components/cart/Cart.jsx
+import React from "react";
+import { useCart } from "../../context/CartContext";
 
-
-import React, { useState } from 'react';
-
-// Componente para el carrito
-const Carrito = () => {
-  const [carrito, setCarrito] = useState([]);
-
-  // Función para agregar un producto al carrito
-  const agregarAlCarrito = (producto) => {
-    setCarrito([...carrito, producto]);
-  };
+const Cart = () => {
+  const { cart, removeFromCart } = useCart();
 
   return (
-    <div>
+    <div className="cart">
       <h2>Carrito de Compras</h2>
-      <div>
-        {carrito.length === 0 ? (
-          <p>El carrito está vacío</p>
-        ) : (
-          <ul>
-            {carrito.map((producto, index) => (
-              <li key={index}>{producto.nombre} - ${producto.precio}</li>
-            ))}
-          </ul>
-        )}
-      </div>
-      <button onClick={() => alert('Proceder a la compra')}>Ir a la compra</button>
+      {cart.length === 0 ? (
+        <p>No hay productos en el carrito.</p>
+      ) : (
+        <ul>
+          {cart.map((item) => (
+            <li key={item.id}>
+              <p>
+                {item.name} - Cantidad: {item.quantity}
+              </p>
+              <div className="div-eliminar">
+              <button className="eliminar" onClick={() => removeFromCart(item.id)}>Eliminar</button>
+              </div>
+             
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
 
-export default Carrito;
+export default Cart;
