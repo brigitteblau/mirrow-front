@@ -1,5 +1,4 @@
 // // src/data/productos.js
-
 export const products = {
   remeras: [
     {
@@ -30,3 +29,9 @@ export const products = {
     },
   ],
 };
+//recibir todo 
+fetch("https://mirrow-db.vercel.app/clothes")
+//cambiar ropa 
+fetch("")
+//borrar ropa 
+fetch("")
