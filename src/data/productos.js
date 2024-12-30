@@ -1,4 +1,4 @@
-// // src/data/productos.js
+// src/data/productos.js
 export const products = {
   remeras: [
     {
@@ -29,9 +29,34 @@ export const products = {
     },
   ],
 };
-//recibir todo 
-fetch("https://mirrow-db.vercel.app/clothes")
-//cambiar ropa 
-fetch("")
-//borrar ropa 
-fetch("")
+
+export async function fetchProducts() {
+  try {
+    const response = await fetch("https://mirrow-db.vercel.app/clothes", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (!response.ok) {
+      throw new Error(`Error HTTP: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log("data:", data);
+    return data; 
+  } catch (error) {
+    console.error("error:", error);
+    return null; 
+  }
+}
+
+export async function getProducts(remote = true) {
+  if (remote) {
+    const data = await fetchProducts();
+    if (data) {
+      return data; 
+    }
+  }
+  console.warn("usamso datos locales");
+  return products; 
+}

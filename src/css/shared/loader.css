@@ -1,0 +1,68 @@
+.section-cont {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+  }
+  .loader-container {
+    position: relative;
+    width: 300px;
+    height: 100px;
+  }
+  
+  .mirrow-text {
+    font-size: 48px;
+    font-weight: bold;
+    color: black;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid transparent;
+    animation: typing 4s steps(6, end) forwards, blink 0.7s step-end infinite;
+  }
+  
+  .logo-part {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    clip-path: polygon(100% 0, 0 50%, 100% 100%);
+    transform: scale(0);
+    animation: draw-logo 1s ease-in-out 4s forwards;
+  }
+  
+  .feather {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/4/4b/Feather_pen_icon.svg') no-repeat center;
+    background-size: contain;
+    animation: move-pen 4s steps(6, end) forwards;
+  }
+  
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  @keyframes blink {
+    50% { border-color: black; }
+  }
+  
+  @keyframes move-pen {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(270px); }
+  }
+  
+  @keyframes draw-logo {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+  }
+  
