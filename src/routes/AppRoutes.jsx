@@ -5,8 +5,9 @@ import ProductList from "../components/products/ProductsList";
 import ProductDetail from "../components/products/ProductDetail";
 import ResetPassword from "../components/user/ResetPassword";
 import Cart from "../components/cart/Cart";
+import Home from "../components/pages/Home";
 const routes = [
-  { path: "/", element: <div>Home Page</div> },
+  { path: "/", element: <Home/> },
   { path: "/sing-up", element: <SingUp /> },
   { path: "/log-in", element: <Login /> },
   { path: "/productos", element: <ProductList /> },
