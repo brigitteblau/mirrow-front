@@ -1,0 +1,39 @@
+.home-container {
+   background-color: black;
+   color: white;
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+.something-div{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.something{
+margin-top: 1%;
+     background-color: blue;
+    height: 400px ; 
+    width: 90%;
+}
+.section li {
+  list-style: none;
+  margin-left: 1%;
+}
+.div-img{
+    display: flex;
+ justify-content: space-around;
+}
+.div-img img {
+  height: 200px;
+  width: 300px;
+}
+.div-hr {
+    display: flex;
+    justify-content: flex-start; /* Asegura que el contenido esté a la izquierda */
+    align-items: center;
+  }
+  
+  .hr {
+    width: 40%; /* Ajusta el ancho de la línea */
+    margin: 0;  /* Elimina cualquier margen automático */
+  }

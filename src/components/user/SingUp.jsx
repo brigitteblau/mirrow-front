@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Popup from "../shared/PopUp";
-import "../../css/shared/PopUp.css";
+import "../../css/shared/popUp.css";
 
 const SingUp = () => {
   const [name, setName] = useState('');
