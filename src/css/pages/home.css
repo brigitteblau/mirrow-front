@@ -1,39 +1,178 @@
-.home-container {
-   background-color: black;
-   color: white;
-   font-family: Arial, Helvetica, sans-serif;
+:root {
+  --main-bg-color: #1a1a1a;
+  --main-text-color: white;
+  --font-family: Arial, Helvetica, sans-serif;
+  --carousel-width: 80%;
+  --carousel-max-width: 1200px;
+  --carousel-height: 500px;
+  --carousel-border-radius: 10px;
+  --carousel-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --carousel-bg-color: #ccc;
+  --control-bg-color: rgba(0, 0, 0, 0.7);
+  --control-bg-hover-color: rgba(0, 0, 0, 0.9);
+  --control-text-color: white;
+  --control-size: 1rem;
+  --control-padding: 6px;
+  --control-border-radius: 50%;
+  --control-opacity: 0;
+  --control-visibility: hidden;
+  --control-hover-opacity: 1;
+  --control-hover-visibility: visible;
+  --control-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  --control-transform-hover: translateY(-50%) scale(1.1);
+  --hr-width: 40%;
+  --hr-height: 2px;
+  --hr-bg-color: linear-gradient(to right, rgba(255, 255, 255, 0), #ccc, rgba(255, 255, 255, 0));
+  --hr-border-radius: 2px;
+  --img-max-width: 300px;
+  --img-max-width-mobile: 400px;
+  --img-border-radius: 8px;
+  --img-margin: 10px 0;
+  --gap: 10px;
 }
 
-.something-div{ 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.div-hr {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
-.something{
-margin-top: 1%;
-     background-color: blue;
-    height: 400px ; 
-    width: 90%;
+
+.hr {
+  width: var(--hr-width);
+  margin: 0;
+  border: 0;
+  height: var(--hr-height);
+  background: var(--hr-bg-color);
+  border-radius: var(--hr-border-radius);
 }
+
+.home-container {
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+  font-family: var(--font-family);
+  padding: 20px;
+}
+
+.something-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.something {
+  width: var(--carousel-width);
+  max-width: var(--carousel-max-width);
+  height: var(--carousel-height);
+  overflow: hidden;
+  position: relative;
+  border-radius: var(--carousel-border-radius);
+  box-shadow: var(--carousel-shadow);
+}
+
+.carousel {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+  height: 100%;
+  transition: background-color 0.5s ease;
+  background-color: var(--carousel-bg-color);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--control-bg-color);
+  color: var(--control-text-color);
+  border: none;
+  padding: var(--control-padding);
+  font-size: var(--control-size);
+  cursor: pointer;
+  border-radius: var(--control-border-radius);
+  transition: all 0.3s ease-in-out;
+  z-index: 10;
+  opacity: var(--control-opacity);
+  visibility: var(--control-visibility);
+}
+
+.something:hover .carousel-control-prev,
+.something:hover .carousel-control-next {
+  opacity: var(--control-hover-opacity);
+  visibility: var(--control-hover-visibility);
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background-color: var(--control-bg-hover-color);
+  box-shadow: var(--control-box-shadow);
+  transform: var(--control-transform-hover);
+}
+
+.carousel-control-prev {
+  left: 10px;
+}
+
+.carousel-control-next {
+  right: 10px;
+}
+
+
 .section li {
   list-style: none;
   margin-left: 1%;
+  font-weight: bold;
 }
-.div-img{
-    display: flex;
- justify-content: space-around;
+
+.div-img {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: var(--gap);
 }
+
 .div-img img {
-  height: 200px;
-  width: 300px;
+  height: auto;
+  width: 100%;
+  max-width: var(--img-max-width);
+  object-fit: cover;
+  border-radius: var(--img-border-radius);
+  margin: var(--img-margin);
 }
-.div-hr {
+
+.div-map {
+  margin: 20px;
+}
+
+@media (max-width: 768px) {
+  .special-section {
     display: flex;
-    justify-content: flex-start; /* Asegura que el contenido esté a la izquierda */
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
+    padding: 0 10px;
   }
-  
-  .hr {
-    width: 40%; /* Ajusta el ancho de la línea */
-    margin: 0;  /* Elimina cualquier margen automático */
+
+  .div-img {
+    justify-content: center;
   }
+
+  .div-img img {
+    width: 100%;
+    max-width: var(--img-max-width-mobile);
+    margin: 15px 0;
+  }
+
+  .something {
+    width: 90%;
+    height: 350px;
+  }
+}

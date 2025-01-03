@@ -1,4 +1,4 @@
-// src/data/productos.js
+// // src/data/productos.js
 export const products = {
   remeras: [
     {

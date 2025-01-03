@@ -14,7 +14,7 @@ const ProductList = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await getProducts(true); // Intentar obtener productos remotos
+        const response = await getProducts(true); 
         if (response && Array.isArray(response.data)) {
           setProducts(response.data); 
         } else {
@@ -29,7 +29,7 @@ const ProductList = () => {
         setProducts(localData.data || []);
       }
       finally {
-        setTimeout(() => setLoading(false), 6000);
+        setTimeout(() => setLoading(false), 3000);
       }
     };
 
