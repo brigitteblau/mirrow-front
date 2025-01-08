@@ -104,7 +104,7 @@ const ProductDetail = () => {
             ))}
           </div>
           <p>
-            ¿No sabes tu talle? Consulta nuestra <Link to="/guia-de-talles">guía de talles</Link>
+            ¿No sabes tu talle? Consulta nuestra <Link to="/guia-de-tallas">guía de talles</Link>
           </p>
         </div>
 

@@ -6,6 +6,7 @@ import ProductDetail from "../components/products/ProductDetail";
 import ResetPassword from "../components/user/ResetPassword";
 import Cart from "../components/cart/Cart";
 import Home from "../components/pages/Home";
+import Guide from "../components/pages/Guide";
 const routes = [
   { path: "/", element: <Home/> },
   { path: "/sing-up", element: <SingUp /> },
@@ -14,7 +15,7 @@ const routes = [
   { path: "/producto/:id", element: <ProductDetail /> },
   { path: "/tiendas", element: <div>Tiendas Page</div> },
   { path: "/promociones", element: <div>Promociones Page</div> },
-  { path: "/guia-de-tallas", element: <div>Guía de tallas Page</div> },
+  { path: "/guia-de-tallas", element: <Guide/> },
   { path: "/cambio-contraseña", element: <ResetPassword /> },
   { path: "/cart", element: <Cart /> },
 ];
