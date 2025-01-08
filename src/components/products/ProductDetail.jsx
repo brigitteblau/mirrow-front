@@ -21,23 +21,19 @@ const ProductDetail = () => {
     return <h2>Producto no encontrado</h2>;
   }
 
-  const handleAddToCart = () => {
-    const productToAdd = {
-      ...product,
-      selectedSize,
-      selectedColor,
-      quantity,
-    };
-    addToCart(productToAdd, quantity);
-    setShowPopup(true);
+  const handleAddToCart= () => {
+    if (selectedSize && selectedColor) {
+      addToCart({ ...product, size: selectedSize, color: selectedColor, quantity: 1 });
+    } else {
+      setShowPopup(true);
+    }
   };
 
-  // Cambiar imágenes
+
   const handleImageChange = (index) => {
     setCurrentImageIndex(index);
   };
 
-  // Ajustar cantidad
   const increaseQuantity = () => {
     if (quantity < product.stock) setQuantity(quantity + 1);
   };

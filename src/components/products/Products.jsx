@@ -30,8 +30,8 @@ const ProductCard = ({ product }) => {
   };
 
   const sizes = Array.isArray(product.size) ? product.size : [];
-  const colors = Array.isArray(product.colors) ? product.colors : []; // Lista de colores disponibles
-  console.log(colors); 
+  const colors = Array.isArray(product.colors) ? product.colors : []; 
+
   
 
   return (
