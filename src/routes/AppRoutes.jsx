@@ -14,7 +14,7 @@ const routes = [
   { path: "/producto/:id", element: <ProductDetail /> },
   { path: "/tiendas", element: <div>Tiendas Page</div> },
   { path: "/promociones", element: <div>Promociones Page</div> },
-  { path: "/guia-de-talles", element: <div>Guía de tallas Page</div> },
+  { path: "/guia-de-tallas", element: <div>Guía de tallas Page</div> },
   { path: "/cambio-contraseña", element: <ResetPassword /> },
   { path: "/cart", element: <Cart /> },
 ];

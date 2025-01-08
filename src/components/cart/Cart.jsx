@@ -1,31 +1,44 @@
 //src/components/cart/Cart.jsx
-import React from "react";
+import React, { useRef } from "react";
 import { useCart } from "../../context/CartContext";
+import Generate from "../layout/Generate";
+import "../../css/pages/card.css";
 
 const Cart = () => {
   const { cart, removeFromCart } = useCart();
+  const cartRef = useRef(); // Ref para el carrito
 
   return (
-    <div className="cart">
-      <h2>Carrito de Compras</h2>
-      {cart.length === 0 ? (
-        <p>No hay productos en el carrito.</p>
-      ) : (
-        <ul>
-          {cart.map((item) => (
-            <li key={item.id}>
-              <p>
-                {item.name} - Cantidad: {item.quantity}
-              </p>
-              <div className="div-eliminar">
-              <button className="eliminar" onClick={() => removeFromCart(item.id)}>Eliminar</button>
+    <>
+      <h2 className="cart-title">Carrito de Compras</h2>
+      <div className="cart" ref={cartRef}>
+        {cart.length === 0 ? (
+          <p className="empty-cart">No hay productos en el carrito.</p>
+        ) : (
+          <div className="cart-items">
+            {cart.map((item) => (
+              <div key={item.id} className="div-li">
+                <div className="li-card">
+                  <p>{item.name} - Cantidad: {item.quantity}</p>
+                  <p>
+                    Talle: {Array.isArray(item.size) ? item.size.join(", ") : item.size}
+                  </p>
+                  <p>Color: {item.color}</p>
+                  <div className="div-eliminar">
+                    <button className="eliminar" onClick={() => removeFromCart(item.id)}>
+                      Eliminar
+                    </button>
+                  </div>
+                </div>
               </div>
-             
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+            ))}
+          </div>
+        )}
+      </div>
+      <div className="button-div">
+        <Generate targetRef={cartRef} />
+      </div>
+    </>
   );
 };
 

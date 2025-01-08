@@ -1,5 +1,5 @@
 //src/context/CartContext.jsx
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
 
 const CartContext = createContext();
 
@@ -8,18 +8,28 @@ export const useCart = () => {
 };
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
-  const [cartCount, setCartCount] = useState(0);
+  // Intenta cargar los datos desde sessionStorage
+  const storedCart = JSON.parse(sessionStorage.getItem('cart')) || [];
+  const storedCartCount = storedCart.length;
+
+  const [cart, setCart] = useState(storedCart);
+  const [cartCount, setCartCount] = useState(storedCartCount);
+
+  useEffect(() => {
+    // Guardar el carrito y el contador en sessionStorage cada vez que cambien
+    sessionStorage.setItem('cart', JSON.stringify(cart));
+    sessionStorage.setItem('cartCount', cartCount);
+  }, [cart, cartCount]);
 
   const addToCart = (product) => {
-    setCart([...cart, product]);
-    setCartCount(cartCount + 1); // Incrementa el contador de productos
+    setCart((prevCart) => [...prevCart, product]);
+    setCartCount((prevCount) => prevCount + 1);
   };
 
   const removeFromCart = (productId) => {
     const updatedCart = cart.filter((item) => item.id !== productId);
     setCart(updatedCart);
-    setCartCount(updatedCart.length); // Actualiza el contador
+    setCartCount(updatedCart.length);
   };
 
   return (

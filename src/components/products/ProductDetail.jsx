@@ -21,7 +21,6 @@ const ProductDetail = () => {
     return <h2>Producto no encontrado</h2>;
   }
 
-  // Agregar producto al carrito
   const handleAddToCart = () => {
     const productToAdd = {
       ...product,
