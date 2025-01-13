@@ -13,6 +13,7 @@ export const products = {
       subTypeId: 101,
       fabric: "100% algodón",
       colors: ["#FC7D62", "#90FC62"],
+      destacado: true,
     },
     {
       id: 2,
@@ -26,6 +27,7 @@ export const products = {
       subTypeId: 102,
       fabric: "Algodón y poliéster",
       colors: ["red", "darkgreen"],
+      destacado: false, 
     },
   ],
   chombas: [
@@ -41,6 +43,7 @@ export const products = {
       subTypeId: 201,
       fabric: "Algodón peinado",
       colors: ["blue", "white"],
+      destacado: true, 
     },
   ],
   buzos: [
@@ -56,6 +59,7 @@ export const products = {
       subTypeId: 301,
       fabric: "Algodón y poliéster",
       colors: ["black", "gray"],
+      promocion: "20% de descuento",
     },
   ],
   camisasHawaianas: [
@@ -71,6 +75,7 @@ export const products = {
       subTypeId: 401,
       fabric: "Viscosa",
       colors: ["yellow", "orange"],
+      promocion: "10% de descuento",
     },
   ],
   sweaters: [
@@ -86,6 +91,7 @@ export const products = {
       subTypeId: 501,
       fabric: "Lana 100%",
       colors: ["red", "navy"],
+      promocion: "Ultimos en stock!",
     },
   ],
   pantalones: [
@@ -101,6 +107,7 @@ export const products = {
       subTypeId: 601,
       fabric: "Gabardina",
       colors: ["black", "gray"],
+      promocion: true, 
     },
   ],
   jeans: [
@@ -116,6 +123,7 @@ export const products = {
       subTypeId: 701,
       fabric: "Denim",
       colors: ["blue", "black"],
+      promocion: true, 
     },
   ],
 };

@@ -5,6 +5,7 @@ import "../../css/products/productos.css";
 import { useNavigate } from "react-router-dom";
 import Popup from "../shared/PopUp";
 
+
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
   const { addToCart } = useCart();
@@ -17,7 +18,7 @@ const ProductCard = ({ product }) => {
   };
 
   const handleAddToCartClick = (e) => {
-    e.stopPropagation(); // Evita que el clic dispare la navegación
+    e.stopPropagation(); 
     if (selectedSize && selectedColor) {
       addToCart({ ...product, size: selectedSize, color: selectedColor, quantity: 1 });
     } else {

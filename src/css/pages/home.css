@@ -151,6 +151,9 @@
 .div-map {
   margin: 20px;
 }
+.product-items{
+  margin: 30px;
+}
 
 @media (max-width: 768px) {
   .special-section {
@@ -176,3 +179,4 @@
     height: 350px;
   }
 }
+
