@@ -1,0 +1,92 @@
+/* Cambiar el color de las flechas */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ff5722; /* Cambia este color al que desees */
+}
+
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #ff0000; 
+}
+
+
+.swiper-button-next,
+.swiper-button-prev {
+  font-size: 24px; 
+}
+
+
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    height: 90%;
+    max-height: 90%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .close-modal {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+  }
+  
+  .close-modal button {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #090909;
+    cursor: pointer;
+    z-index: 1001;
+    transition: color 0.3s ease;
+  }
+  
+  .close-modal button:hover {
+    color: #f00;
+  }
+  
+  .modal-swiper {
+    flex-grow: 1;
+    width: 100%;
+    height: calc(100% - 40px); /* Resta el espacio ocupado por el botón de cierre */
+  }
+  
+  .swiper-zoom-container img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  /* Media Query para Pantallas Pequeñas */
+  @media (max-width: 768px) {
+    .modal-content {
+      padding: 5px;
+    }
+  
+    .close-modal button {
+      font-size: 20px;
+    }
+  
+    .modal-swiper {
+      height: calc(100% - 30px); 
+    }}

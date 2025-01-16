@@ -5,6 +5,14 @@ import { useCart } from "../../context/CartContext";
 import "../../css/products/productosDetail.css";
 import Popup from "../shared/PopUp";
 
+// Importaciones de Swiper
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Zoom } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/zoom";
+
 const ProductDetail = () => {
   const { id } = useParams();
   const location = useLocation();
@@ -13,25 +21,21 @@ const ProductDetail = () => {
 
   const [selectedSize, setSelectedSize] = useState(product.size[0]);
   const [quantity, setQuantity] = useState(1);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
-  const [showPopup, setShowPopup] = useState(false);
+  const [showPopup, setShowPopup] = useState(false); // Popup de confirmación
+  const [showModal, setShowModal] = useState(false); // Estado del modal
+  const [currentImageIndex, setCurrentImageIndex] = useState(0); // Imagen activa
 
   if (!product) {
     return <h2>Producto no encontrado</h2>;
   }
 
-  const handleAddToCart= () => {
+  const handleAddToCart = () => {
     if (selectedSize && selectedColor) {
-      addToCart({ ...product, size: selectedSize, color: selectedColor, quantity: 1 });
+      addToCart({ ...product, size: selectedSize, color: selectedColor, quantity });
     } else {
       setShowPopup(true);
     }
-  };
-
-
-  const handleImageChange = (index) => {
-    setCurrentImageIndex(index);
   };
 
   const increaseQuantity = () => {
@@ -53,7 +57,7 @@ const ProductDetail = () => {
               src={image}
               alt={`${product.name} thumbnail ${index + 1}`}
               className={index === currentImageIndex ? "active-thumbnail" : ""}
-              onClick={() => handleImageChange(index)}
+              onClick={() => setCurrentImageIndex(index)}
             />
           ))}
         </div>
@@ -61,9 +65,14 @@ const ProductDetail = () => {
 
       {/* Columna central: Imagen principal */}
       <div className="main">
-      <div className="main-image">
-        <img src={product.images[currentImageIndex]} alt={product.name} />
-      </div>
+        <div className="main-image">
+          <img
+            src={product.images[currentImageIndex]}
+            alt={product.name}
+            onClick={() => setShowModal(true)} // Abrir modal
+            style={{ cursor: "pointer" }}
+          />
+        </div>
       </div>
 
       {/* Columna derecha: Información del producto */}
@@ -106,22 +115,11 @@ const ProductDetail = () => {
 
         <div className="quantity">
           <p>Cantidad:</p>
-         
-          <button 
-            onClick={decreaseQuantity}
-            disabled={quantity === 1} >
-                  -
-                  </button>
-       
-         
-        <div className="span-div">
-        <span className="span">{quantity}</span>
-        </div>
-        
-          <button
-            onClick={increaseQuantity}
-            disabled={quantity === product.stock}
-          >
+          <button onClick={decreaseQuantity} disabled={quantity === 1}>
+            -
+          </button>
+          <span>{quantity}</span>
+          <button onClick={increaseQuantity} disabled={quantity === product.stock}>
             +
           </button>
         </div>
@@ -131,22 +129,42 @@ const ProductDetail = () => {
         </p>
 
         <div className="buttons">
-          <button
-            className="buy-now"
-            onClick={handleAddToCart}
-            disabled={product.stock === 0}
-          >
+          <button className="buy-now" onClick={handleAddToCart} disabled={product.stock === 0}>
             Comprar
           </button>
-          <button
-            className="add-to-cart"
-            onClick={handleAddToCart}
-            disabled={product.stock === 0}
-          >
+          <button className="add-to-cart" onClick={handleAddToCart} disabled={product.stock === 0}>
             Agregar al carrito
           </button>
         </div>
       </div>
+
+      {/* Modal con Swiper */}
+      {showModal && (
+        <div className="modal-overlay" onClick={() => setShowModal(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="close-modal">
+              <button onClick={() => setShowModal(false)}>&times;</button>
+            </div>
+            <Swiper
+              modules={[Navigation, Pagination, Zoom]}
+              navigation
+              pagination={{ clickable: true }}
+              zoom={true}
+              loop={true}
+              initialSlide={currentImageIndex}
+              className="modal-swiper"
+            >
+              {product.images.map((image, index) => (
+                <SwiperSlide key={index}>
+                  <div className="swiper-zoom-container">
+                    <img src={image} alt={`${product.name} slide ${index + 1}`} />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </div>
+      )}
 
       {/* Popup */}
       {showPopup && (

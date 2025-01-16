@@ -4,14 +4,13 @@ import { useCart } from "../../context/CartContext";
 import "../../css/products/productos.css";
 import { useNavigate } from "react-router-dom";
 import Popup from "../shared/PopUp";
-
-
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
   const { addToCart } = useCart();
   const [selectedSize, setSelectedSize] = useState('');
   const [selectedColor, setSelectedColor] = useState('');
   const [showPopup, setShowPopup] = useState(false);
+ 
 
   const handleCardClick = () => {
     navigate(`/producto/${product.id}`, { state: { product } });
@@ -37,11 +36,11 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className="product-card" onClick={handleCardClick} style={{ cursor: "pointer" }}>
-      <img src={product.images[0]} alt={product.name} />
+       <img src={product.images[0]} alt={product.name} className="productos-img"/> 
       <h2>{product.name}</h2>
       <p>Precio: ${product.price}</p>
 
-      {/* Selección de talle con chips */}
+
       <div className="size-selector">
         {sizes.length > 0 ? (
           sizes.map((size) => (
@@ -94,7 +93,7 @@ const ProductCard = ({ product }) => {
         onClick={handleAddToCartClick}
         disabled={!selectedSize || !selectedColor} 
       >
-        <img src="/img/car.svg" alt="Añadir al carrito" />
+        <img src="/img/car.svg" alt="Añadir al carrito" className="img-car"/>
       </button>
 
       {showPopup && <Popup message="Por favor, selecciona un talle y un color." onClose={closePopup} />}

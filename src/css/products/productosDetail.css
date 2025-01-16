@@ -10,7 +10,7 @@
   --main-image-border-radius: 8px;
   --main-image-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
-  --font-color: #333;
+  --banana-color: #000000;
   --price-color: #260808;
   --font-size-large: 2rem;
   --font-size-medium: 1.5rem;
@@ -102,7 +102,7 @@
 
 .details-section h1 {
   font-size: var(--font-size-large);
-  color: var(--font-color);
+  color: var(--banana-color);
   margin-bottom: 10px;
 }
 
