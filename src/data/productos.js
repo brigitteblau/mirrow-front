@@ -15,7 +15,6 @@ import sweater3 from './sweater3.webp';
 import jean from './jean.webp';
 import jean2 from './jean2.webp';
 import jean3 from './jean3.webp';
-
 import gabardina from './gabardina.webp';
 import gabardina2 from './gabardina2.webp';
 export const products = {

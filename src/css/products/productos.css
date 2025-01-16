@@ -10,7 +10,7 @@
   --card-hover-transform: translateY(-5px);
   --card-hover-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   --text-color: #fb0404;
-  --text-secondary-color: #fffcfc;
+  --text-secondary-color: #000000;
   --chip-bg-color: #000000;
   --chip-border-color: #ddd;
   --chip-padding: 8px 16px;
@@ -88,7 +88,7 @@
   padding: var(--chip-padding);
   border-radius: var(--chip-border-radius);
   font-size: var(--chip-font-size);
-  color: var(--text-secondary-color);
+  color: whitesmoke;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
 }

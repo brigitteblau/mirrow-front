@@ -7,14 +7,15 @@ import ResetPassword from "../components/user/ResetPassword";
 import Cart from "../components/cart/Cart";
 import Home from "../components/pages/Home";
 import Guide from "../components/pages/Guide";
+import Sale from "../components/pages/Sale";
 const routes = [
   { path: "/", element: <Home/> },
   { path: "/sing-up", element: <SingUp /> },
   { path: "/log-in", element: <Login /> },
-  { path: "/productos", element: <ProductList /> },
+  { path: "/coleccion", element: <ProductList /> },
   { path: "/producto/:id", element: <ProductDetail /> },
   { path: "/tiendas", element: <div>Tiendas Page</div> },
-  { path: "/promociones", element: <div>Promociones Page</div> },
+  { path: "/promociones", element: <Sale/> },
   { path: "/guia-de-tallas", element: <Guide/> },
   { path: "/cambio-contraseña", element: <ResetPassword /> },
   { path: "/cart", element: <Cart /> },
