@@ -18,8 +18,8 @@ const Header = () => {
       <nav className={`nav-links ${isMenuActive ? "active" : ""}`}>
         <Link to="/">Home</Link>
         <Link to="/productos">Productos</Link>
-        <Link to="/tiendas">Tiendas</Link>
-        <Link to="/promociones">Promociones</Link>
+        <Link to="/preguntas-frecuentes">Preguntas frecuentes</Link>
+        <Link to="/promociones">ON SALE</Link>
         <Link to="/guia-de-tallas">Guía de tallas</Link>
       </nav>
 

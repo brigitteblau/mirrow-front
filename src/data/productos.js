@@ -1,12 +1,31 @@
 // // src/data/productos.js
+import studio from './studio.webp';
+import studio2 from './studio2.webp';
+import bud2 from './bud2.webp';
+import chomba1 from './chomba1.webp';
+import chomba2 from './chomba2.webp';
+import buzop from './buzop.webp';
+import buzop2 from './buzo2.webp';
+import hawai from './hawai.webp';
+import hawai2 from './hawai2.webp';
+import hawai3 from './hawai3.webp';
+import sweater from './sweater.webp';
+import sweater2 from './sweater2.webp';
+import sweater3 from './sweater3.webp';
+import jean from './jean.webp';
+import jean2 from './jean2.webp';
+import jean3 from './jean3.webp';
+
+import gabardina from './gabardina.webp';
+import gabardina2 from './gabardina2.webp';
 export const products = {
   remeras: [
     {
       id: 1,
-      name: "Remera Koala",
+      name: "Remera Studio",
       description: "Remera de algodón koala",
-      price: 500,
-      images: ["https://via.placeholder.com/150", "https://via.placeholder.com/150/0000FF"],
+      price: 12200,
+      images: [studio, studio2],
       stock: 1000,
       size: ["S", "M", "L", "XL"],
       typeId: 1,
@@ -17,10 +36,10 @@ export const products = {
     },
     {
       id: 2,
-      name: "Remera Estampada bici",
+      name: "Remera Estampada Budweiser",
       description: "Remera con estampado exclusivo.",
       price: 600,
-      images: ["https://via.placeholder.com/150", "https://via.placeholder.com/150/FF0000"],
+      images: [bud2,],
       stock: 5,
       size: ["S", "M", "L"],
       typeId: 1,
@@ -33,10 +52,10 @@ export const products = {
   chombas: [
     {
       id: 3,
-      name: "Chomba Clásica",
+      name: "Chomba Slim Algodon Basic",
       description: "Chomba clásica de algodón peinado.",
       price: 700,
-      images: ["https://via.placeholder.com/150", "https://via.placeholder.com/150/00FF00"],
+      images: [chomba1, chomba2],
       stock: 50,
       size: ["M", "L", "XL"],
       typeId: 2,
@@ -49,10 +68,10 @@ export const products = {
   buzos: [
     {
       id: 4,
-      name: "Buzo Deportivo",
+      name: "Buzo Polar Clasic",
       description: "Buzo ideal para actividades al aire libre.",
       price: 1200,
-      images: ["https://via.placeholder.com/150", "https://via.placeholder.com/150/0000FF"],
+      images: [buzop, buzop2],
       stock: 30,
       size: ["S", "M", "L", "XL"],
       typeId: 3,
@@ -68,7 +87,7 @@ export const products = {
       name: "Camisa Hawaiana",
       description: "Camisa con estampado tropical.",
       price: 800,
-      images: ["https://via.placeholder.com/150", "https://via.placeholder.com/150/FFA500"],
+      images: [hawai, hawai2, hawai3],
       stock: 20,
       size: ["M", "L", "XL"],
       typeId: 4,
@@ -81,32 +100,32 @@ export const products = {
   sweaters: [
     {
       id: 6,
-      name: "Sweater de Lana",
-      description: "Sweater ideal para el invierno.",
+      name: "Sweater  Jacket",
+      description: "Sweater ideal para el invierno.", 
       price: 1500,
-      images: ["https://via.placeholder.com/150", "https://via.placeholder.com/150/8B0000"],
+      images: [sweater, sweater2, sweater3],
       stock: 15,
       size: ["M", "L"],
       typeId: 5,
       subTypeId: 501,
       fabric: "Lana 100%",
-      colors: ["red", "navy"],
+      colors: ["grey", "black", "lightgrey"],
       promocion: "Ultimos en stock!",
     },
   ],
   pantalones: [
     {
       id: 7,
-      name: "Pantalón de Vestir",
-      description: "Pantalón elegante y cómodo.",
-      price: 1300,
-      images: ["https://via.placeholder.com/150", "https://via.placeholder.com/150/808080"],
+      name: "Pantalon de gabardina Relaxed",
+      description: "Bolsillos Amplios, Botamanga recta, maxima durabilidad, corte clasico",
+      price: 50000,
+      images: [gabardina, gabardina2],
       stock: 25,
       size: ["38", "40", "42", "44"],
       typeId: 6,
       subTypeId: 601,
       fabric: "Gabardina",
-      colors: ["black", "gray"],
+      colors: ["black", "blue", "lightblue", "grey"],
       promocion: true, 
     },
   ],
@@ -114,15 +133,15 @@ export const products = {
     {
       id: 8,
       name: "Jean Clásico",
-      description: "Jean azul clásico.",
+      description: "Bolsillos amplios, Botamanga recta, Costuras reforzadas, Materiales de 1era calidad",
       price: 1100,
-      images: ["https://via.placeholder.com/150", "https://via.placeholder.com/150/00008B"],
+      images: [jean, jean2, jean3],
       stock: 40,
       size: ["38", "40", "42", "44"],
       typeId: 7,
       subTypeId: 701,
       fabric: "Denim",
-      colors: ["blue", "black"],
+      colors: ["black", "blue", "lightblue", "grey"],
       promocion: true, 
     },
   ],
